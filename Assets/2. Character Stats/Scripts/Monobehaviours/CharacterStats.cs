@@ -7,6 +7,11 @@ public class CharacterStats : MonoBehaviour
     public CharacterStats_SO characterDefinition;
     public CharacterInventory charInv;
     public GameObject characterWeaponSlot;
+    #region Properties
+    public ItemPickUp Weapon { get { return GetCurrentWeapon(); } set { ChangeWeapon(value); } }
+    public ItemPickUp Armor { set { ChangeArmor(value); } }
+    public int Health { get { return GetHealth(); } }
+    #endregion
 
     #region Constructors
     public CharacterStats()
