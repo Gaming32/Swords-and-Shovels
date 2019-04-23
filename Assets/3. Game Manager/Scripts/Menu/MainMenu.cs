@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     public void OnFadeInComplete()
     {
         Debug.Log("FadeIn Complete");
+
+        UIManager.Instance.SetDummyCameraActive(true);
     }
 
     public void FadeIn()
@@ -27,6 +29,8 @@ public class MainMenu : MonoBehaviour
 
     public void FadeOut()
     {
+        UIManager.Instance.SetDummyCameraActive(false);
+
         mainMenuAnimator.Stop();
         mainMenuAnimator.clip = fadeOutAnimation;
         mainMenuAnimator.Play();

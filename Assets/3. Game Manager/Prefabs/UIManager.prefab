@@ -330,8 +330,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: af5d964feb87dcd49a040f93b5e3a220, type: 2}
+  - {fileID: 7400000, guid: cd3a7154a27cac349b264a32093d18f0, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 7400000, guid: 3739763eb096ee440a6e86f6480a786c, type: 2}
@@ -424,6 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce848af5768460c45ab7e31122634ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 114608996549912360}
+  dummyCamera: {fileID: 20757272912230474}
 --- !u!114 &114110037165574424
 MonoBehaviour:
   m_ObjectHideFlags: 1
