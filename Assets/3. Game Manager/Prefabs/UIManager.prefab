@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114304309134960850}
   - component: {fileID: 114006494436563054}
   - component: {fileID: 114498863683258930}
+  - component: {fileID: 114075623548746154}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -125,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224085275167005504}
   - component: {fileID: 111958717725990638}
+  - component: {fileID: 114608996549912360}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -411,6 +413,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114075623548746154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368435504543104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce848af5768460c45ab7e31122634ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114110037165574424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,6 +602,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114608996549912360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495308988550548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee3a922981607e41aaff7c2367309eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuAnimator: {fileID: 111958717725990638}
+  fadeOutAnimation: {fileID: 7400000, guid: cd3a7154a27cac349b264a32093d18f0, type: 2}
+  fadeInAnimation: {fileID: 7400000, guid: af5d964feb87dcd49a040f93b5e3a220, type: 2}
 --- !u!114 &114615682490614664
 MonoBehaviour:
   m_ObjectHideFlags: 1
