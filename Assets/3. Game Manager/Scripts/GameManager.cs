@@ -5,12 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public enum GameState { PREGAME, RUNNING, PAUSED }
+
     public GameObject[] SystemPrefabs;
 
     private List<GameObject> instancedSystemPrefabs;
     List<AsyncOperation> loadOperations;
+    GameState currentGameState = GameState.PREGAME;
 
     private string currentLevelName = "";
+
+    public GameState CurrentGameState
+    {
+        get { return currentGameState; }
+        private set { currentGameState = value; }
+    }
 
     private void Start()
     {
@@ -37,6 +46,26 @@ public class GameManager : Singleton<GameManager>
     void OnUnloadOperationComplete(AsyncOperation ao)
     {
         Debug.Log("Unload Complete.");
+    }
+
+    void UpdateState(GameState state)
+    {
+        currentGameState = state;
+
+        switch (currentGameState)
+        {
+            case GameState.PREGAME:
+                break;
+
+            case GameState.RUNNING:
+                break;
+
+            case GameState.PAUSED:
+                break;
+
+            default:
+                break;
+        }
     }
 
     void InstantiateSystemPrefabs()
