@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
+    [SerializeField] private Button ResumeButton;
+    [SerializeField] private Button RestartButton;
+    [SerializeField] private Button QuitButton;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        ResumeButton.onClick.AddListener(HandleResumeClicked);
+    }
+
+    void HandleResumeClicked()
+    {
+        GameManager.Instance.TogglePause();
+    }
 }

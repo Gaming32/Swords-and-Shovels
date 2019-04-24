@@ -34,6 +34,19 @@ public class GameManager : Singleton<GameManager>
         InstantiateSystemPrefabs();
     }
 
+    private void Update()
+    {
+        if (currentGameState == GameState.PREGAME)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
     void OnLoadOperationComplete(AsyncOperation ao)
     {
         if (loadOperations.Contains(ao))
@@ -62,12 +75,15 @@ public class GameManager : Singleton<GameManager>
         switch (currentGameState)
         {
             case GameState.PREGAME:
+                Time.timeScale = 1f;
                 break;
 
             case GameState.RUNNING:
+                Time.timeScale = 1f;
                 break;
 
             case GameState.PAUSED:
+                Time.timeScale = 0f;
                 break;
 
             default:
@@ -126,5 +142,10 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         LoadLevel("Main");
+    }
+
+    public void TogglePause()
+    {
+        UpdateState(currentGameState == GameState.RUNNING ? GameState.PAUSED : GameState.RUNNING);
     }
 }
