@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AnimationClip fadeOutAnimation;
     [SerializeField] private AnimationClip fadeInAnimation;
 
+    private void Start()
+    {
+        GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
+    }
+
     public void OnFadeOutComplete()
     {
         Debug.Log("FadeOut Complete");
@@ -18,6 +23,14 @@ public class MainMenu : MonoBehaviour
         Debug.Log("FadeIn Complete");
 
         UIManager.Instance.SetDummyCameraActive(true);
+    }
+
+    void HandleGameStateChanged(GameManager.GameState currentState, GameManager.GameState previousState)
+    {
+        if (previousState == GameManager.GameState.PREGAME && currentState == GameManager.GameState.RUNNING)
+        {
+            FadeOut();
+        }
     }
 
     public void FadeIn()

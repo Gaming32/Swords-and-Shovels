@@ -1,13 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+
+[System.Serializable] public class EventGameState : UnityEvent<GameManager.GameState, GameManager.GameState> { }
 
 public class GameManager : Singleton<GameManager>
 {
     public enum GameState { PREGAME, RUNNING, PAUSED }
 
     public GameObject[] SystemPrefabs;
+    public EventGameState OnGameStateChanged;
 
     private List<GameObject> instancedSystemPrefabs;
     List<AsyncOperation> loadOperations;
@@ -29,8 +32,6 @@ public class GameManager : Singleton<GameManager>
         loadOperations = new List<AsyncOperation>();
 
         InstantiateSystemPrefabs();
-
-        LoadLevel("Main");
     }
 
     void OnLoadOperationComplete(AsyncOperation ao)
@@ -38,6 +39,11 @@ public class GameManager : Singleton<GameManager>
         if (loadOperations.Contains(ao))
         {
             loadOperations.Remove(ao);
+
+            if (loadOperations.Count == 0)
+            {
+                UpdateState(GameState.RUNNING);
+            }
         }
 
         Debug.Log("Load Complete.");
@@ -50,6 +56,7 @@ public class GameManager : Singleton<GameManager>
 
     void UpdateState(GameState state)
     {
+        GameState previousGameState = currentGameState;
         currentGameState = state;
 
         switch (currentGameState)
@@ -66,6 +73,8 @@ public class GameManager : Singleton<GameManager>
             default:
                 break;
         }
+
+        OnGameStateChanged.Invoke(currentGameState, previousGameState);
     }
 
     void InstantiateSystemPrefabs()
@@ -112,5 +121,10 @@ public class GameManager : Singleton<GameManager>
             Destroy(instance);
         }
         instancedSystemPrefabs.Clear();
+    }
+
+    public void StartGame()
+    {
+        LoadLevel("Main");
     }
 }
