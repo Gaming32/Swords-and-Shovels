@@ -61,6 +61,7 @@
      <Compile Include="Assets\2. Character Stats\Scripts\ScriptableObjects\ItemPickUps_SO.cs" />
      <Compile Include="Assets\3. Game Manager\Scripts\GameManager.cs" />
      <Compile Include="Assets\3. Game Manager\Scripts\Menu\MainMenu.cs" />
+     <Compile Include="Assets\3. Game Manager\Scripts\Menu\PauseMenu.cs" />
      <Compile Include="Assets\3. Game Manager\Scripts\Menu\UIManager.cs" />
      <Compile Include="Assets\3. Game Manager\Scripts\Utils\Singleton.cs" />
      <Compile Include="Assets\Common\Level\FX\Scripts\LightFlicker.cs" />
