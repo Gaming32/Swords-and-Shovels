@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 [CreateAssetMenu(fileName = "NewStats", menuName = "Character/Stats", order = 1)]
 public class CharacterStats_SO : ScriptableObject
@@ -270,6 +270,6 @@ public class CharacterStats_SO : ScriptableObject
     public void SaveCharacterData()
     {
         saveDataOnClose = true;
-        EditorUtility.SetDirty(this);
+        //EditorUtility.SetDirty(this);
     }
 }
